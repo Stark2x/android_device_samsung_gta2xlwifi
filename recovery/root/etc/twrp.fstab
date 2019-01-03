@@ -1,0 +1,18 @@
+/boot		emmc	/dev/block/bootdevice/by-name/boot
+/recovery	emmc	/dev/block/bootdevice/by-name/recovery	flags=backup=1
+
+/system		ext4	/dev/block/bootdevice/by-name/system
+/vendor		ext4	/dev/block/bootdevice/by-name/vendor
+/odm		ext4	/dev/block/bootdevice/by-name/odm	flags=backup=1;display="Carrier Configs";flashim
+/data		ext4	/dev/block/bootdevice/by-name/userdata	flags=length=-16384,encryptable=footer
+/cache		ext4	/dev/block/bootdevice/by-name/cache
+
+/mdm		emmc	/dev/block/bootdevice/by-name/modem	flags=backup=1;display="Baseband"
+/modem		emmc	/dev/block/bootdevice/by-name/apnhlos	flags=backup=1;subpartitionof=/mdm
+/efs		ext4	/dev/block/bootdevice/by-name/efs	flags=backup=1;display="EFS"
+
+/misc		emmc	/dev/block/bootdevice/by-name/misc	flags=backup=0;display="Misc"
+
+/sdcard		auto	/dev/block/mmcblk1p1	/dev/block/mmcblk1
+/external_sd	auto	/dev/block/mmcblk0p1	/dev/block/mmcblk0	flags=display="Micro SDcard";storage;wipeingui;removable
+/usb-otg 	auto 	/dev/block/sda1 	/dev/block/sda 		flags=display="USB-OTG";storage;wipeingui;removable
